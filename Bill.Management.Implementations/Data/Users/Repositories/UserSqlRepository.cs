@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using Bill.Management.Abstractions;
 using Bill.Management.Abstractions.Data.Users;
-using Bill.Management.Core.Abstractions.Logging;
+using Bill.Management.Core.Abstractions.Services.Logging;
 using Npgsql;
 
-namespace Bill.Management.Implementations.Data.Users
+namespace Bill.Management.Implementations.Data.Users.Repositories
 {
     internal sealed class UserSqlRepository : IUserRepository
     {

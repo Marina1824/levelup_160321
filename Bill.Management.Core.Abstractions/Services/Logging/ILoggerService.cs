@@ -1,4 +1,4 @@
-﻿namespace Bill.Management.Core.Abstractions.Logging
+﻿namespace Bill.Management.Core.Abstractions.Services.Logging
 {
     public interface ILoggerService
     {

@@ -7,19 +7,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetIntroduce", "DotNetIn
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Trash", "Trash", "{40D87B35-C396-4EE8-BC6D-781E99E3DE48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bill.Management.Console", "Bill.Management.Console\Bill.Management.Console.csproj", "{61EE8B73-5B7A-4D43-B98C-53BEF766BFAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bill.Management.Console", "Bill.Management.Console\Bill.Management.Console.csproj", "{61EE8B73-5B7A-4D43-B98C-53BEF766BFAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bill.Management.Core.Abstractions", "Bill.Management.Core.Abstractions\Bill.Management.Core.Abstractions.csproj", "{C9C2A968-B801-49E1-8E0E-37ABC773E42D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bill.Management.Core.Abstractions", "Bill.Management.Core.Abstractions\Bill.Management.Core.Abstractions.csproj", "{C9C2A968-B801-49E1-8E0E-37ABC773E42D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bill.Management.Core.Implementations", "Bill.Management.Core.Implementations\Bill.Management.Core.Implementations.csproj", "{70F170ED-FE35-4F2E-B946-8285853BE4CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bill.Management.Core.Implementations", "Bill.Management.Core.Implementations\Bill.Management.Core.Implementations.csproj", "{70F170ED-FE35-4F2E-B946-8285853BE4CF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{15E668CA-666F-45A1-BF32-E58DBD55A17B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Implementations", "Implementations", "{81AC2F66-6779-4AF1-82A6-A45926E9A2FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bill.Management.Abstractions", "Bill.Management.Abstractions\Bill.Management.Abstractions.csproj", "{25D6EBCB-1285-4BAD-BC7D-74E0DE9ACF0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bill.Management.Abstractions", "Bill.Management.Abstractions\Bill.Management.Abstractions.csproj", "{25D6EBCB-1285-4BAD-BC7D-74E0DE9ACF0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bill.Management.Implementations", "Bill.Management.Implementations\Bill.Management.Implementations.csproj", "{F5C5FC7B-1176-4520-BFE3-4287EF6FA447}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bill.Management.Implementations", "Bill.Management.Implementations\Bill.Management.Implementations.csproj", "{F5C5FC7B-1176-4520-BFE3-4287EF6FA447}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -6,7 +6,13 @@
 
   <ItemGroup>
     <Folder Include="Data\Repository\" />
-    <Folder Include="Logging\" />
+    <Folder Include="Managers\" />
+    <Folder Include="Commands\" />
+    <Folder Include="Services\Logging\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="9.5.3" />
   </ItemGroup>
 
 </Project>

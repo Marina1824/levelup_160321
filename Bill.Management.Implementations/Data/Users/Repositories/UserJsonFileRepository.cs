@@ -6,7 +6,7 @@ using Bill.Management.Abstractions.Data.Users;
 using Bill.Management.Abstractions.Exceptions;
 using Bill.Management.Core.Abstractions.Services.JsonPersistence;
 
-namespace Bill.Management.Implementations.Data.Users
+namespace Bill.Management.Implementations.Data.Users.Repositories
 {
     internal sealed class UserJsonFileRepository : IUserRepository
     {
