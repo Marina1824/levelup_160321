@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Tasks.Management": {
+      "commandName": "Project",
+      "commandLineArgs": "load"
+    }
+  }
+}
