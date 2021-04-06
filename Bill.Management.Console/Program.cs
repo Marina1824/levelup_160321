@@ -14,12 +14,7 @@ namespace Bill.Management.Console
     {
         static void Main(string[] args)
         {
-            IContainer container = new NinjectContainer(new StandardKernel())
-                .AddLogger()
-                .AddJson()
-                .AddEntitiesValidation()
-                .AddSqlRepositories()
-                .AddCollectionManagers();
+            IContainer container = new NinjectContainer(new StandardKernel());
 
             IUsersCollectionManager manager = container.Resolve<IUsersCollectionManager>();
 

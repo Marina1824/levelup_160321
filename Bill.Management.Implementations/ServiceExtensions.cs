@@ -6,33 +6,34 @@ using Bill.Management.Implementations.Data.Users;
 using Bill.Management.Implementations.Data.Users.Managers;
 using Bill.Management.Implementations.Data.Users.Repositories;
 using Bill.Management.Implementations.Data.Users.Validators;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Bill.Management.Implementations
 {
     public static class ServiceExtensions
     {
-        public static IContainer AddSqlRepositories(this IContainer container)
+        public static IServiceCollection AddSqlRepositories(this IServiceCollection container)
         {
-            container.BindAsSingleton<IUserRepository, UserSqlRepository>();
+            container.AddSingleton<IUserRepository, UserSqlRepository>();
 
             return container;
         }
 
-        public static IContainer AddJsonRepositories(this IContainer container)
+        public static IServiceCollection AddJsonRepositories(this IServiceCollection container)
         {
             return container;
         }
 
-        public static IContainer AddEntitiesValidation(this IContainer container)
+        public static IServiceCollection AddEntitiesValidation(this IServiceCollection container)
         {
             container.AddValidator<User, UserValidationService>();
 
             return container;
         }
 
-        public static IContainer AddCollectionManagers(this IContainer container)
+        public static IServiceCollection AddCollectionManagers(this IServiceCollection container)
         {
-            container.BindAsSingleton<IUsersCollectionManager, UsersCollectionManager>();
+            container.AddSingleton<IUsersCollectionManager, UsersCollectionManager>();
 
             return container;
         }

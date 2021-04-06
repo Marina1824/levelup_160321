@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bill.Management.Abstractions\Bill.Management.Abstractions.csproj" />
+    <ProjectReference Include="..\Bill.Management.Core.Abstractions\Bill.Management.Core.Abstractions.csproj" />
+    <ProjectReference Include="..\Bill.Management.Core.Implementations\Bill.Management.Core.Implementations.csproj" />
+    <ProjectReference Include="..\Bill.Management.Implementations\Bill.Management.Implementations.csproj" />
+  </ItemGroup>
+
+
+</Project>

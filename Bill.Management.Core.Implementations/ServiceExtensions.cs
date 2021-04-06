@@ -4,21 +4,22 @@ using Bill.Management.Core.Abstractions.Services.Logging;
 using Bill.Management.Core.Abstractions.Services.Validation;
 using Bill.Management.Core.Implementations.Services.JsonPersistence;
 using Bill.Management.Core.Implementations.Services.Logging;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Bill.Management.Core.Implementations
 {
     public static class ServiceExtensions
     {
-        public static IContainer AddLogger(this IContainer container)
+        public static IServiceCollection AddLogger(this IServiceCollection container)
         {
-            container.BindAsSingleton<ILoggerService, LoggerService>();
+            container.AddSingleton<ILoggerService, LoggerService>();
 
             return container;
         }
 
-        public static IContainer AddJson(this IContainer container)
+        public static IServiceCollection AddJson(this IServiceCollection container)
         {
-            container.BindAsSingleton<IJsonPersistenceService, NewtonsoftJsonPersistenceService>();
+            container.AddSingleton<IJsonPersistenceService, NewtonsoftJsonPersistenceService>();
 
             return container;
         }

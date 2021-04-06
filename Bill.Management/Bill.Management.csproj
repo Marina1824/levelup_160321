@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bill.Management.Abstractions\Bill.Management.Abstractions.csproj" />
+    <ProjectReference Include="..\Bill.Management.Core.Abstractions\Bill.Management.Core.Abstractions.csproj" />
+    <ProjectReference Include="..\Bill.Management.Rest.Service.Client\Bill.Management.Rest.Service.Client.csproj" />
+  </ItemGroup>
+
+</Project>

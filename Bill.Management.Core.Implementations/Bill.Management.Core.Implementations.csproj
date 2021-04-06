@@ -12,4 +12,10 @@
     <ProjectReference Include="..\Bill.Management.Core.Abstractions\Bill.Management.Core.Abstractions.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\3.1.10\ref\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
