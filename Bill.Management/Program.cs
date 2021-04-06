@@ -9,13 +9,14 @@ namespace Bill.Management
 {
     class Program
     {
+
         static async Task Main(string[] args)
         {
             Console.WriteLine("Hello World!");
 
             IBillManagementClient client = ClientFactory.Create("http://localhost:58755");
 
-            IOperationResult<IReadOnlyList<User>> users = await client.GetClients();
+            IOperationResult<IReadOnlyList<User>> usersList = await client.GetClients();
 
             Console.ReadLine();
         }

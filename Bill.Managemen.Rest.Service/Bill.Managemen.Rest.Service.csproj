@@ -9,6 +9,7 @@
     <ProjectReference Include="..\Bill.Management.Core.Abstractions\Bill.Management.Core.Abstractions.csproj" />
     <ProjectReference Include="..\Bill.Management.Core.Implementations\Bill.Management.Core.Implementations.csproj" />
     <ProjectReference Include="..\Bill.Management.Implementations\Bill.Management.Implementations.csproj" />
+    <ProjectReference Include="..\Tasks.Management\Tasks.Management.csproj" />
   </ItemGroup>
 
 

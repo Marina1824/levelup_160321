@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using Bill.Management.Abstractions;
 using Bill.Management.Core.Abstractions.Results;
 using Bill.Management.Implementations.Data.Users.Managers;
+using Tasks.Management.Commands;
+using Tasks.Management.Data;
+using Tasks.Management.Service;
 
 namespace Bill.Managemen.Rest.Service.Controllers
 {
@@ -30,6 +33,17 @@ namespace Bill.Managemen.Rest.Service.Controllers
         public IOperationResult<IReadOnlyList<User>> Bar()
         {
             return _collectionManager.GetAllUsers();
+        }
+
+        [HttpGet]
+        [Route("tasks")]
+        public IEnumerable<UserTask> GetTasks()
+        {
+            List<UserTask> tasks = new List<UserTask>();
+
+            new LoadTaskCommand(new PersistenceService()).Process(tasks);
+
+            return tasks;
         }
     }
 }
