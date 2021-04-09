@@ -1,15 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Bill.Management.Abstractions;
 using Bill.Management.Core.Abstractions.Results;
+using Bill.Management.Core.Abstractions.Services.Mapper;
+using Bill.Management.Data.Transfer;
 using Bill.Management.Implementations.Data.Users.Managers;
-using Tasks.Management.Commands;
-using Tasks.Management.Data;
-using Tasks.Management.Service;
 
 namespace Bill.Managemen.Rest.Service.Controllers
 {
@@ -20,30 +17,41 @@ namespace Bill.Managemen.Rest.Service.Controllers
 
         private readonly ILogger<UserManagementController> _logger;
         private readonly IUsersCollectionManager _collectionManager;
+        private readonly IMapService _mapService;
 
         public UserManagementController(
             ILogger<UserManagementController> logger, 
-            IUsersCollectionManager collectionManager)
+            IUsersCollectionManager collectionManager,
+            IMapService mapService)
         {
             _logger = logger;
             _collectionManager = collectionManager;
+            _mapService = mapService;
         }
 
+        /// <summary>
+        /// Very important method
+        /// </summary>
+        /// <returns>A operation result <see cref="IOperationResult{TResult}"/></returns>
         [HttpGet]
-        public IOperationResult<IReadOnlyList<User>> Bar()
+        public async Task<IOperationResult<IReadOnlyList<User>>> GetAll()
         {
-            return _collectionManager.GetAllUsers();
+            IOperationResult<IReadOnlyList<User>> result = _collectionManager.GetAllUsers();
+
+            return await Task.FromResult(result);
         }
 
-        [HttpGet]
-        [Route("tasks")]
-        public IEnumerable<UserTask> GetTasks()
+        [HttpPut]
+        public IOperationResult<UserTransfer> ReplaceUserById(
+            [FromQuery] int id, 
+            [FromQuery] string name, 
+            [FromBody] UserTransfer user)
         {
-            List<UserTask> tasks = new List<UserTask>();
+            User userModel = _mapService.Map<UserTransfer, User>(user);
 
-            new LoadTaskCommand(new PersistenceService()).Process(tasks);
+            UserTransfer userDto = _mapService.Map<User, UserTransfer>(userModel);
 
-            return tasks;
+            return new OperationResult<UserTransfer>(user);
         }
     }
 }

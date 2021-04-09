@@ -19,9 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bill.Management.Abstraction
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bill.Management.Implementations", "Bill.Management.Implementations\Bill.Management.Implementations.csproj", "{F5C5FC7B-1176-4520-BFE3-4287EF6FA447}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks.Management", "Tasks.Management\Tasks.Management.csproj", "{2450C939-F3F9-4AEF-AF2B-05E991D661F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Management", "Tasks.Management\Tasks.Management.csproj", "{2450C939-F3F9-4AEF-AF2B-05E991D661F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bill.Managemen.Rest.Service", "Bill.Managemen.Rest.Service\Bill.Managemen.Rest.Service.csproj", "{36C2E00F-8A51-460B-B3FF-48DCDDD490FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bill.Managemen.Rest.Service", "Bill.Managemen.Rest.Service\Bill.Managemen.Rest.Service.csproj", "{36C2E00F-8A51-460B-B3FF-48DCDDD490FD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLogic", "BusinessLogic", "{405095E5-0ECB-47E3-B0DA-3F6F35324025}"
 EndProject
@@ -29,9 +29,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Servers", "Servers", "{7C46
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{02EC7829-8195-4B1F-9056-C4CF515EAE82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bill.Management.Rest.Service.Client", "Bill.Management.Rest.Service.Client\Bill.Management.Rest.Service.Client.csproj", "{C311353B-20F1-4B2B-9341-C7443D711A3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bill.Management.Rest.Service.Client", "Bill.Management.Rest.Service.Client\Bill.Management.Rest.Service.Client.csproj", "{C311353B-20F1-4B2B-9341-C7443D711A3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bill.Management", "Bill.Management\Bill.Management.csproj", "{ED707DD5-E4DB-432E-97FF-4234E78FFEBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bill.Management", "Bill.Management\Bill.Management.csproj", "{ED707DD5-E4DB-432E-97FF-4234E78FFEBF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dto", "Dto", "{51A46DD0-C04C-4FC2-8DD2-F42797F60BD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bill.Management.Data.Transfer", "Bill.Management.Data.Transfer\Bill.Management.Data.Transfer.csproj", "{4D6190F8-6B6D-42D5-A6EF-23DA865D24D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -113,6 +117,14 @@ Global
 		{ED707DD5-E4DB-432E-97FF-4234E78FFEBF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ED707DD5-E4DB-432E-97FF-4234E78FFEBF}.Release|x86.ActiveCfg = Release|Any CPU
 		{ED707DD5-E4DB-432E-97FF-4234E78FFEBF}.Release|x86.Build.0 = Release|Any CPU
+		{4D6190F8-6B6D-42D5-A6EF-23DA865D24D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D6190F8-6B6D-42D5-A6EF-23DA865D24D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D6190F8-6B6D-42D5-A6EF-23DA865D24D9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4D6190F8-6B6D-42D5-A6EF-23DA865D24D9}.Debug|x86.Build.0 = Debug|Any CPU
+		{4D6190F8-6B6D-42D5-A6EF-23DA865D24D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D6190F8-6B6D-42D5-A6EF-23DA865D24D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D6190F8-6B6D-42D5-A6EF-23DA865D24D9}.Release|x86.ActiveCfg = Release|Any CPU
+		{4D6190F8-6B6D-42D5-A6EF-23DA865D24D9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -130,6 +142,8 @@ Global
 		{36C2E00F-8A51-460B-B3FF-48DCDDD490FD} = {02EC7829-8195-4B1F-9056-C4CF515EAE82}
 		{02EC7829-8195-4B1F-9056-C4CF515EAE82} = {7C46A7B7-E232-4A3C-941C-94B02652AB19}
 		{C311353B-20F1-4B2B-9341-C7443D711A3B} = {02EC7829-8195-4B1F-9056-C4CF515EAE82}
+		{51A46DD0-C04C-4FC2-8DD2-F42797F60BD7} = {7C46A7B7-E232-4A3C-941C-94B02652AB19}
+		{4D6190F8-6B6D-42D5-A6EF-23DA865D24D9} = {51A46DD0-C04C-4FC2-8DD2-F42797F60BD7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EF7148E9-6BD4-429D-BF0D-5E097D773D41}
