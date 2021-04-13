@@ -4,12 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bill.Management.Windows.Manager"
+        xmlns:viewModels="clr-namespace:Bill.Management.Windows.ViewModels;assembly=Bill.Management.Windows.ViewModels"
+        xmlns:viewModels1="clr-namespace:Bill.Management.Windows.Manager.ViewModels"
         mc:Ignorable="d"
         
-        Title="Bill Management System" 
+        Title="{Binding Path=Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
         Height="450" 
         Width="800" 
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" 
+        d:DataContext="{d:DesignInstance viewModels1:PrimaryMainViewModel}">
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -22,7 +25,13 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Button Grid.Row="0" Grid.Column="1" Click="ButtonBase_OnClick">Foo</Button>
+        <Button Grid.Row="0" Grid.Column="1" Command="{Binding FillGridCommand}">Foo</Button>
+
+        <DataGrid AutoGenerateColumns="True" Grid.Column="0" Grid.Row="0" ItemsSource="{Binding Path=Users, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+
+        </DataGrid>
+
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
 
     </Grid>

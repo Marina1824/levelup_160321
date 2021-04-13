@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillManagement.Core.Abstrac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillManagement.Imlementations.Data", "BillManagement.Imlementations.Data\BillManagement.Imlementations.Data.csproj", "{48CE3883-4777-4885-8C9B-D029DE8391C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bill.Management.Windows.ViewModels", "Bill.Management.Windows.ViewModels\Bill.Management.Windows.ViewModels.csproj", "{83947DB3-B10E-4961-AC18-8BA35CA9D423}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -165,6 +167,14 @@ Global
 		{48CE3883-4777-4885-8C9B-D029DE8391C3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{48CE3883-4777-4885-8C9B-D029DE8391C3}.Release|x86.ActiveCfg = Release|Any CPU
 		{48CE3883-4777-4885-8C9B-D029DE8391C3}.Release|x86.Build.0 = Release|Any CPU
+		{83947DB3-B10E-4961-AC18-8BA35CA9D423}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83947DB3-B10E-4961-AC18-8BA35CA9D423}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83947DB3-B10E-4961-AC18-8BA35CA9D423}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{83947DB3-B10E-4961-AC18-8BA35CA9D423}.Debug|x86.Build.0 = Debug|Any CPU
+		{83947DB3-B10E-4961-AC18-8BA35CA9D423}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83947DB3-B10E-4961-AC18-8BA35CA9D423}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83947DB3-B10E-4961-AC18-8BA35CA9D423}.Release|x86.ActiveCfg = Release|Any CPU
+		{83947DB3-B10E-4961-AC18-8BA35CA9D423}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

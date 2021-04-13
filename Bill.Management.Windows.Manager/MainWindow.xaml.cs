@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Bill.Management.Rest.Service.Client.Connection;
+using Bill.Management.Windows.Manager.ViewModels;
+using Bill.Management.Windows.ViewModels;
 using BillManagement.Core.Abstractions.Data.Results;
 using BillManagement.Imlementations.Data;
 
@@ -25,14 +27,15 @@ namespace Bill.Management.Windows.Manager
     {
         public MainWindow()
         {
+            DataContext = new PrimaryMainViewModel();
+
             InitializeComponent();
         }
 
-        private async void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            IBillManagementClient client = ClientFactory.Create("http://localhost:58755");
+        //MVVM
 
-            IOperationResult<IReadOnlyList<User>> usersList = await client.GetClients();
-        }
+        //Model
+        //View
+        //ViewModel
     }
 }
