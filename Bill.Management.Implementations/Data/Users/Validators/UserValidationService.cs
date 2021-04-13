@@ -1,5 +1,6 @@
 ﻿using Bill.Management.Abstractions;
 using Bill.Management.Core.Abstractions.Services.Validation;
+using BillManagement.Imlementations.Data;
 using FluentValidation;
 
 namespace Bill.Management.Implementations.Data.Users.Validators

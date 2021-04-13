@@ -6,6 +6,7 @@ using Bill.Management.Implementations.Data.Users;
 using Bill.Management.Implementations.Data.Users.Managers;
 using Bill.Management.Implementations.Data.Users.Repositories;
 using Bill.Management.Implementations.Data.Users.Validators;
+using BillManagement.Imlementations.Data;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Bill.Management.Implementations
@@ -14,7 +15,8 @@ namespace Bill.Management.Implementations
     {
         public static IServiceCollection AddSqlRepositories(this IServiceCollection container)
         {
-            container.AddSingleton<IUserRepository, UserSqlRepository>();
+            //container.AddSingleton<IUserRepository, UserSqlRepository>();
+            container.AddSingleton<IUserRepository, UseEfRepository>();
 
             return container;
         }

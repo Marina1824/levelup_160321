@@ -13,6 +13,12 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="9.5.3" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bill.Management.Windows.Manager\Bill.Management.Windows.Manager.csproj" />
+    <ProjectReference Include="..\BillManagement.Core.Abstractions.Data\BillManagement.Core.Abstractions.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -4,6 +4,7 @@ using System.Data;
 using Bill.Management.Abstractions;
 using Bill.Management.Abstractions.Data.Users;
 using Bill.Management.Core.Abstractions.Services.Logging;
+using BillManagement.Imlementations.Data;
 using Npgsql;
 
 namespace Bill.Management.Implementations.Data.Users.Repositories
@@ -61,6 +62,16 @@ namespace Bill.Management.Implementations.Data.Users.Repositories
         public void Delete(int id)
         {
             throw new System.NotImplementedException();
+        }
+
+        public User GetUserById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Commit()
+        {
+            throw new NotImplementedException();
         }
 
         private NpgsqlConnection Connection

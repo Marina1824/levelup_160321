@@ -1,4 +1,6 @@
-﻿namespace Bill.Management.Core.Abstractions.Data.Repository
+﻿using BillManagement.Core.Abstractions.Data;
+
+namespace Bill.Management.Core.Abstractions.Data.Repository
 {
     public interface IRepository<TDataItem, TUniqueIdType> : IReadOnlyRepository<TDataItem>
         where TDataItem : BaseEntity<TUniqueIdType>

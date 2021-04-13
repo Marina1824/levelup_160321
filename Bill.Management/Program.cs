@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Bill.Management.Abstractions;
-using Bill.Management.Core.Abstractions.Results;
 using Bill.Management.Rest.Service.Client;
+using Bill.Management.Rest.Service.Client.Connection;
+using BillManagement.Core.Abstractions.Data.Results;
+using BillManagement.Imlementations.Data;
 
 namespace Bill.Management
 {

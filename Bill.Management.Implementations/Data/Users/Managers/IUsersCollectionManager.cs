@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Bill.Management.Abstractions;
-using Bill.Management.Core.Abstractions.Results;
+using BillManagement.Core.Abstractions.Data.Results;
+using BillManagement.Imlementations.Data;
 
 namespace Bill.Management.Implementations.Data.Users.Managers
 {
@@ -9,5 +10,7 @@ namespace Bill.Management.Implementations.Data.Users.Managers
         IOperationResult<IReadOnlyList<User>> GetAllUsers();
 
         IOperationResult<User> CreateUser(User user);
+
+        IOperationResult<User> UpdateUserText(int id, string text);
     }
 }

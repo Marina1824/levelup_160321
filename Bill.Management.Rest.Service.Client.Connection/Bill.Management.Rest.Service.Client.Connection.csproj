@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Refit" Version="5.2.4" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BillManagement.Core.Abstractions.Data\BillManagement.Core.Abstractions.Data.csproj" />
+    <ProjectReference Include="..\BillManagement.Imlementations.Data\BillManagement.Imlementations.Data.csproj" />
+  </ItemGroup>
+
+</Project>

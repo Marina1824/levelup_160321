@@ -3,10 +3,11 @@ using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Bill.Management.Abstractions;
-using Bill.Management.Core.Abstractions.Results;
 using Bill.Management.Core.Abstractions.Services.Mapper;
 using Bill.Management.Data.Transfer;
 using Bill.Management.Implementations.Data.Users.Managers;
+using BillManagement.Core.Abstractions.Data.Results;
+using BillManagement.Imlementations.Data;
 
 namespace Bill.Managemen.Rest.Service.Controllers
 {
@@ -52,6 +53,14 @@ namespace Bill.Managemen.Rest.Service.Controllers
             UserTransfer userDto = _mapService.Map<User, UserTransfer>(userModel);
 
             return new OperationResult<UserTransfer>(user);
+        }
+
+        
+        [HttpPut]
+        [Route("update-user-by-id")]
+        public IOperationResult<User> UpdateUserTextById([FromQuery] int id, [FromQuery] string text)
+        {
+            return _collectionManager.UpdateUserText(id, text);
         }
     }
 }

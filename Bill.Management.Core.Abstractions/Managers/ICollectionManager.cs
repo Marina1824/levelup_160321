@@ -1,4 +1,5 @@
 ﻿using Bill.Management.Core.Abstractions.Data;
+using BillManagement.Core.Abstractions.Data;
 
 namespace Bill.Management.Core.Abstractions.Managers
 {

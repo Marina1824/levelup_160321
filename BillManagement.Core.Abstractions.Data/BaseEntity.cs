@@ -1,4 +1,4 @@
-﻿namespace Bill.Management.Core.Abstractions.Data
+﻿namespace BillManagement.Core.Abstractions.Data
 {
     public class BaseEntity<TUniqueId>
         where TUniqueId : struct

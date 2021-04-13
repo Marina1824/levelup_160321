@@ -6,10 +6,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Bill.Management.Core.Abstractions\Bill.Management.Core.Abstractions.csproj" />
+    <ProjectReference Include="..\BillManagement.Imlementations.Data\BillManagement.Imlementations.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Data\Users\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
   </ItemGroup>
 
 </Project>

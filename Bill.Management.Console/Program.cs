@@ -2,10 +2,11 @@
 using Bill.Management.Abstractions;
 using Bill.Management.Console.Container;
 using Bill.Management.Core.Abstractions.Container;
-using Bill.Management.Core.Abstractions.Results;
 using Bill.Management.Core.Implementations;
 using Bill.Management.Implementations;
 using Bill.Management.Implementations.Data.Users.Managers;
+using BillManagement.Core.Abstractions.Data.Results;
+using BillManagement.Imlementations.Data;
 using Ninject;
 
 namespace Bill.Management.Console

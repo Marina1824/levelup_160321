@@ -8,7 +8,7 @@
             <summary>
             Very important method
             </summary>
-            <returns>A operation result <see cref="T:Bill.Management.Core.Abstractions.Results.IOperationResult`1"/></returns>
+            <returns>A operation result <see cref="T:BillManagement.Core.Abstractions.Data.Results.IOperationResult`1"/></returns>
         </member>
     </members>
 </doc>

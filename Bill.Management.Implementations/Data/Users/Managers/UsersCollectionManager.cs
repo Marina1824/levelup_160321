@@ -2,21 +2,26 @@
 using System.Collections.Generic;
 using Bill.Management.Abstractions;
 using Bill.Management.Abstractions.Data.Users;
+using Bill.Management.Abstractions.Exceptions;
 using Bill.Management.Core.Abstractions.Managers;
-using Bill.Management.Core.Abstractions.Results;
 using Bill.Management.Core.Abstractions.Services.Logging;
 using Bill.Management.Core.Abstractions.Services.Validation;
+using BillManagement.Core.Abstractions.Data.Results;
+using BillManagement.Imlementations.Data;
 
 namespace Bill.Management.Implementations.Data.Users.Managers
 {
     internal sealed class UsersCollectionManager : CollectionManager<User, int>, IUsersCollectionManager
     {
+        private readonly IUserRepository _userRepository;
+
         public UsersCollectionManager(
             IUserRepository repository, 
             IValidationService<User> validationService,
             ILoggerService loggerService) 
             : base(repository, validationService, loggerService)
         {
+            _userRepository = repository;
         }
 
         public IOperationResult<IReadOnlyList<User>> GetAllUsers()
@@ -57,6 +62,22 @@ namespace Bill.Management.Implementations.Data.Users.Managers
             {
                 return OperationResult<User>.FromException(exception);
             }
+        }
+
+        public IOperationResult<User> UpdateUserText(int id, string text)
+        {
+            User user = _userRepository.GetUserById(id);
+
+            if (user is null)
+            {
+                return OperationResult<User>.FromException(new UserRepositoryFailureException());
+            }
+
+            user.Text = text;
+
+            _userRepository.Commit();
+
+            return new OperationResult<User>(user);
         }
     }
 }

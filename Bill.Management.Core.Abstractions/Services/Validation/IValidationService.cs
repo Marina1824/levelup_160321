@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Bill.Management.Core.Abstractions.Results;
+using BillManagement.Core.Abstractions.Data.Results;
 
 namespace Bill.Management.Core.Abstractions.Services.Validation
 {

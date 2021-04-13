@@ -5,6 +5,7 @@ using Bill.Management.Abstractions;
 using Bill.Management.Abstractions.Data.Users;
 using Bill.Management.Abstractions.Exceptions;
 using Bill.Management.Core.Abstractions.Services.JsonPersistence;
+using BillManagement.Imlementations.Data;
 
 namespace Bill.Management.Implementations.Data.Users.Repositories
 {
@@ -99,6 +100,16 @@ namespace Bill.Management.Implementations.Data.Users.Repositories
             }
 
             throw new DeleteUserRepositoryFailureException();
+        }
+
+        public User GetUserById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Commit()
+        {
+            throw new NotImplementedException();
         }
 
         private void SaveUsers(IList<User> users)

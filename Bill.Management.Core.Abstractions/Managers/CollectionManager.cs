@@ -2,6 +2,7 @@
 using Bill.Management.Core.Abstractions.Data.Repository;
 using Bill.Management.Core.Abstractions.Services.Logging;
 using Bill.Management.Core.Abstractions.Services.Validation;
+using BillManagement.Core.Abstractions.Data;
 
 namespace Bill.Management.Core.Abstractions.Managers
 {

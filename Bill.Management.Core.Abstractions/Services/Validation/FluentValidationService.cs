@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Bill.Management.Core.Abstractions.Results;
+using BillManagement.Core.Abstractions.Data.Results;
 using FluentValidation;
 using FluentValidation.Results;
 

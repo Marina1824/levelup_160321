@@ -1,4 +1,4 @@
-﻿namespace Bill.Management.Core.Abstractions.Results
+﻿namespace BillManagement.Core.Abstractions.Data.Results
 {
     public sealed class OperationFailure : IOperationFailure
     {
