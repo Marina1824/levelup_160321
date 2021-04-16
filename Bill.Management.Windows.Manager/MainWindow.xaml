@@ -25,14 +25,61 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Button Grid.Row="0" Grid.Column="1" Command="{Binding FillGridCommand}">Foo</Button>
+        <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right">
 
-        <DataGrid AutoGenerateColumns="True" Grid.Column="0" Grid.Row="0" ItemsSource="{Binding Path=Users, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <Button Command="{Binding FillGridCommand}" Height="38" Width="150">Foo 1</Button>
+
+            <Button Command="{Binding FillGridCommand}" Height="38" Width="150">Foo 2</Button>
+
+            <Button Command="{Binding FillGridCommand}" Height="38" Width="150">Foo 3</Button>
+
+            <Button Command="{Binding FillGridCommand}" Height="38" Width="150">Foo 4</Button>
+
+            <Button Command="{Binding FillGridCommand}" Height="38" Width="150">Foo 5</Button>
+
+        </StackPanel>
+
+        <DataGrid 
+            AutoGenerateColumns="True" 
+            Grid.Column="0" 
+            Grid.Row="0" 
+            ItemsSource="{Binding Path=Users, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
 
         </DataGrid>
 
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <!--<TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>-->
 
+        <DockPanel Grid.Row="1" Grid.Column="1" LastChildFill="False">
+
+            <Button DockPanel.Dock="Bottom" Command="{Binding FillGridCommand}">Foo 1</Button>
+
+            <Button DockPanel.Dock="Top" Command="{Binding FillGridCommand}">Foo 2</Button>
+
+            <Button DockPanel.Dock="Left" Command="{Binding FillGridCommand}">Foo 3</Button>
+
+            <Button DockPanel.Dock="Right" Command="{Binding FillGridCommand}">Foo 4</Button>
+
+            <Button DockPanel.Dock="Right" Command="{Binding FillGridCommand}">Foo 5</Button>
+
+        </DockPanel>
+
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        </Grid>
+ 
 
     </Grid>
 </Window>

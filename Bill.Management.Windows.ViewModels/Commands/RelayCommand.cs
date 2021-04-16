@@ -20,6 +20,8 @@ namespace Bill.Management.Windows.ViewModels.Commands
             this._canExecute = canExecute;
         }
 
+        public string Name { get; internal set; }
+
         public bool CanExecute(object parameter)
         {
             return this._canExecute == null || this._canExecute(parameter);
