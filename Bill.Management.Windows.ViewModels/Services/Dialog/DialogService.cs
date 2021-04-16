@@ -3,12 +3,14 @@ using Bill.Management.Windows.ViewModels.View;
 
 namespace Bill.Management.Windows.ViewModels.Services.Dialog
 {
-    internal sealed  class DialogService : IDialogService
+    internal sealed class DialogService : IDialogService
     {
         private readonly IPrimaryWindowView _primaryWindowView;
         private readonly ICustomDynamicFactory<IDialogView> _dynamicFactory;
 
-        public DialogService(IPrimaryWindowView primaryWindowView, ICustomDynamicFactory<IDialogView> dynamicFactory)
+        public DialogService(
+            IPrimaryWindowView primaryWindowView, 
+            ICustomDynamicFactory<IDialogView> dynamicFactory)
         {
             _primaryWindowView = primaryWindowView;
             _dynamicFactory = dynamicFactory;
@@ -18,6 +20,15 @@ namespace Bill.Management.Windows.ViewModels.Services.Dialog
             where TView : IDialogView
         {
             IDialogView view = _dynamicFactory.Create<TView>();
+
+            return view.ShowDialog();
+        }
+
+        public bool? ShowDialog<TView, TBaseViewModel>(TBaseViewModel viewModel) 
+            where TView : IDialogView where TBaseViewModel : BaseViewModel
+        {
+            IDialogView view = _dynamicFactory.Create<TView>();
+            view.DataContext = viewModel;
 
             return view.ShowDialog();
         }

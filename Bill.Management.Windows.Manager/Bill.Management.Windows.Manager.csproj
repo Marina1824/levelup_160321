@@ -175,6 +175,7 @@
       <DependentUpon>ChildWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Factories\IDemoFactory.cs" />
+    <Compile Include="ViewModels\ChildViewModel.cs" />
     <Compile Include="ViewModels\Data\IUserViewModel.cs" />
     <Compile Include="ViewModels\Data\UserViewModel.cs" />
     <Compile Include="ViewModels\PrimaryMainViewModel.cs" />

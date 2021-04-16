@@ -6,5 +6,9 @@ namespace Bill.Management.Windows.ViewModels.Services.Dialog
     {
         bool? ShowDialog<TView>()
             where TView : IDialogView;
+
+        bool? ShowDialog<TView, TBaseViewModel>(TBaseViewModel viewModel)
+            where TView : IDialogView
+            where TBaseViewModel : BaseViewModel;
     }
 }

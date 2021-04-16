@@ -24,12 +24,14 @@ namespace Bill.Management.Windows.Manager
             IKernel kernel = new StandardKernel();
 
             kernel.Bind<IPrimaryWindowView>().To<MainWindow>().InSingletonScope();
+            kernel.Bind<ChildViewModel>().To<ChildViewModel>().InSingletonScope();
             kernel.Bind<IDialogView, IChildDialogView>().To<ChildWindow>().InTransientScope();
             kernel.Bind<PrimaryMainViewModel>().ToSelf().InSingletonScope();
 
             kernel.AddCommandFactory();
             kernel.AddDialogFactory();
             kernel.AddDialogService();
+            kernel.AddViewModelsFactory();
 
             IPrimaryWindowView windowView = kernel.Get<IPrimaryWindowView>();
 

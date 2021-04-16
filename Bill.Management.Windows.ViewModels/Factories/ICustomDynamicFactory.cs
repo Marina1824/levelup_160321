@@ -3,7 +3,7 @@
     public interface ICustomDynamicFactory<TData>
         where TData : class
     {
-        TData Create<TMainData>()
+        TMainData Create<TMainData>()
             where TMainData : TData;
     }
 }

@@ -29,6 +29,13 @@ namespace Bill.Management.Windows.ViewModels
             return kernel;
         }
 
+        public static IKernel AddViewModelsFactory(this IKernel kernel)
+        {
+            kernel.Bind<ICustomDynamicFactory<BaseViewModel>>().ToFactory().InSingletonScope();
+
+            return kernel;
+        }
+
         public static IKernel AddFactory<TFactory, TData>(this IKernel kernel) 
             where TFactory : class, IDynamicFactory<TData>
             where TData : class

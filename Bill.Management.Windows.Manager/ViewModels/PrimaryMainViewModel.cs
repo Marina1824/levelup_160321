@@ -6,6 +6,7 @@ using Bill.Management.Rest.Service.Client.Connection;
 using Bill.Management.Windows.Manager.ViewModels.Data;
 using Bill.Management.Windows.ViewModels;
 using Bill.Management.Windows.ViewModels.Commands;
+using Bill.Management.Windows.ViewModels.Factories;
 using Bill.Management.Windows.ViewModels.Services.Dialog;
 using Bill.Management.Windows.ViewModels.View;
 using BillManagement.Core.Abstractions.Data.Results;
@@ -17,12 +18,14 @@ namespace Bill.Management.Windows.Manager.ViewModels
     public sealed class PrimaryMainViewModel : MainViewModel
     {
         private readonly IDialogService _dialogService;
+        private readonly ICustomDynamicFactory<BaseViewModel> _viewModeFactory;
         private ICommand _fillGridCommand;
         private readonly ObservableCollection<IUserViewModel> _users = new ObservableCollection<IUserViewModel>();
 
-        public PrimaryMainViewModel(IDialogService dialogService)
+        public PrimaryMainViewModel(IDialogService dialogService, ICustomDynamicFactory<BaseViewModel> viewModeFactory)
         {
             _dialogService = dialogService;
+            _viewModeFactory = viewModeFactory;
             FillGridCommand = new RelayCommand(x => FillUserGridByService());
         }
 
@@ -44,7 +47,14 @@ namespace Bill.Management.Windows.Manager.ViewModels
                 FirstName = Guid.NewGuid().ToString()
             }));*/
 
-            _dialogService.ShowDialog<IChildDialogView>();
+            ChildViewModel baseViewModel = _viewModeFactory.Create<ChildViewModel>();
+            baseViewModel.Title = "This is child window!";
+            baseViewModel.SomeText = "HALLO!";
+
+            _dialogService.ShowDialog<IChildDialogView, ChildViewModel>(baseViewModel);
+
+            Title = baseViewModel.SomeText;
+
 
             /*IBillManagementClient client = ClientFactory.Create("http://localhost:58755");
 

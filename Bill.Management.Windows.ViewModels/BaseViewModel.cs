@@ -13,6 +13,22 @@ namespace Bill.Management.Windows.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private string _title = "CHANGE CAPTION!!!";
+
+        public string Title
+        {
+            get
+            {
+                return _title;
+            }
+            set
+            {
+                _title = value;
+
+                OnPropertyChanged();
+            }
+        }
+
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
