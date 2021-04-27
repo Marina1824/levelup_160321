@@ -17,10 +17,7 @@ namespace Bill.Management.Implementations.Data.Users.Repositories.Contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .Entity<User>()
-                .Ignore(x => x.FirstName)
-                .Ignore(x => x.LastName)
-                .Ignore(x => x.MiddleName);
+                .Entity<User>();
         }
     }
 }

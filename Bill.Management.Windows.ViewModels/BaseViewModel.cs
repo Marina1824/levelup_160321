@@ -34,5 +34,13 @@ namespace Bill.Management.Windows.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        protected virtual void OnPropertiesChanged(params string[] propertiesName)
+        {
+            foreach (string propertyName in propertiesName)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }

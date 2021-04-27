@@ -1,4 +1,6 @@
-﻿using Bill.Management.Windows.ViewModels.Factories;
+﻿using System.Windows.Input;
+using Bill.Management.Windows.ViewModels.Commands;
+using Bill.Management.Windows.ViewModels.Factories;
 using Bill.Management.Windows.ViewModels.Services.Dialog;
 using Bill.Management.Windows.ViewModels.View;
 using Ninject;
@@ -17,7 +19,8 @@ namespace Bill.Management.Windows.ViewModels
 
         public static IKernel AddCommandFactory(this IKernel kernel)
         {
-            kernel.Bind<ICommandFactory>().To<CommandFactory>().InSingletonScope();
+            kernel.Bind<ICommand>().To<RelayCommand>().InTransientScope();
+            kernel.Bind<ICommandFactory>().ToFactory().InSingletonScope();
 
             return kernel;
         }
@@ -38,6 +41,18 @@ namespace Bill.Management.Windows.ViewModels
 
         public static IKernel AddFactory<TFactory, TData>(this IKernel kernel) 
             where TFactory : class, IDynamicFactory<TData>
+            where TData : class
+        {
+            kernel.Bind<TData>().ToSelf().InTransientScope();
+
+            kernel.Bind<TFactory>().ToFactory().InSingletonScope();
+
+
+            return kernel;
+        }
+
+        public static IKernel AddFactory<TFactory, TData, TArgument>(this IKernel kernel)
+            where TFactory : class, IDynamicFactory<TData, TArgument>
             where TData : class
         {
             kernel.Bind<TData>().ToSelf().InTransientScope();

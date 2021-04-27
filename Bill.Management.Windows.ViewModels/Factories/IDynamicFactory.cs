@@ -5,4 +5,10 @@
     {
         TData Create();
     }
+
+    public interface IDynamicFactory<TData, TArgument>
+        where TData : class
+    {
+        TData Create(TArgument argument);
+    }
 }

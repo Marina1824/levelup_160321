@@ -3,7 +3,7 @@ using BillManagement.Core.Abstractions.Data;
 
 namespace BillManagement.Imlementations.Data
 {
-    [Table("Simple", Schema = "Test")]
+    [Table("User", Schema = "Test")]
     public sealed class User : BaseEntity<int>
     {
         public string Text { get; set; }

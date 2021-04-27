@@ -14,10 +14,11 @@ namespace Bill.Management.Windows.ViewModels.Commands
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
+        public RelayCommand(string commandName, Action<object> execute, Func<object, bool> canExecute = null)
         {
-            this._execute = execute;
-            this._canExecute = canExecute;
+            Name = commandName;
+            _execute = execute;
+            _canExecute = canExecute;
         }
 
         public string Name { get; internal set; }

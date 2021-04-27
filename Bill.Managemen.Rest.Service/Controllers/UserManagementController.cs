@@ -15,7 +15,6 @@ namespace Bill.Managemen.Rest.Service.Controllers
     [Route("v1/users")]
     public class UserManagementController : ControllerBase
     {
-
         private readonly ILogger<UserManagementController> _logger;
         private readonly IUsersCollectionManager _collectionManager;
         private readonly IMapService _mapService;
@@ -43,24 +42,16 @@ namespace Bill.Managemen.Rest.Service.Controllers
         }
 
         [HttpPut]
-        public IOperationResult<UserTransfer> ReplaceUserById(
-            [FromQuery] int id, 
-            [FromQuery] string name, 
-            [FromBody] UserTransfer user)
+        public IOperationResult<User> Create([FromBody] User user)
         {
-            User userModel = _mapService.Map<UserTransfer, User>(user);
-
-            UserTransfer userDto = _mapService.Map<User, UserTransfer>(userModel);
-
-            return new OperationResult<UserTransfer>(user);
+            return _collectionManager.CreateUser(user);
         }
 
         
-        [HttpPut]
-        [Route("update-user-by-id")]
-        public IOperationResult<User> UpdateUserTextById([FromQuery] int id, [FromQuery] string text)
+        [HttpPost]
+        public IOperationResult<User> UpdateUserTextById([FromBody] User user)
         {
-            return _collectionManager.UpdateUserText(id, text);
+            return _collectionManager.UpdateUser(user);
         }
     }
 }

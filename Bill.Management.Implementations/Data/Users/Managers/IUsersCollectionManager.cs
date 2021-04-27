@@ -10,6 +10,7 @@ namespace Bill.Management.Implementations.Data.Users.Managers
         IOperationResult<IReadOnlyList<User>> GetAllUsers();
 
         IOperationResult<User> CreateUser(User user);
+        IOperationResult<User> UpdateUser(User user);
 
         IOperationResult<User> UpdateUserText(int id, string text);
     }

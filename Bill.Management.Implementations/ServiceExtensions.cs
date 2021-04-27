@@ -15,7 +15,10 @@ namespace Bill.Management.Implementations
     {
         public static IServiceCollection AddSqlRepositories(this IServiceCollection container)
         {
+            /* Используем даппер либо быстрый доступ */
             //container.AddSingleton<IUserRepository, UserSqlRepository>();
+            
+            /* Используем EF Core репозиторий */
             container.AddSingleton<IUserRepository, UseEfRepository>();
 
             return container;

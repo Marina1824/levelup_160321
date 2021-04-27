@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Bill.Management.Abstractions;
 using Bill.Management.Abstractions.Data.Users;
 using Bill.Management.Implementations.Data.Users.Repositories.Contexts;
 using BillManagement.Imlementations.Data;
@@ -46,7 +44,10 @@ namespace Bill.Management.Implementations.Data.Users.Repositories
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            User user = GetUserById(id);
+            user.IsDeleted = true;
+            
+            Commit();
         }
 
         public User GetUserById(int id)

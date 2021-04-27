@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using Bill.Management.Abstractions;
 using Bill.Management.Abstractions.Data.Users;
 using Bill.Management.Core.Abstractions.Services.Logging;
 using BillManagement.Imlementations.Data;
+using Dapper;
 using Npgsql;
 
 namespace Bill.Management.Implementations.Data.Users.Repositories
@@ -25,6 +27,9 @@ namespace Bill.Management.Implementations.Data.Users.Repositories
             string query = "set search_path = \"Test\";" +
                            "SELECT * FROM \"Simple\";";
 
+            IEnumerable<MicroUser> entities = Connection.Query<MicroUser>(query);
+
+            /* Самый быстрый метод доступа к базам
             using (NpgsqlCommand command = new NpgsqlCommand(query, Connection))
             {
                 using (IDataReader reader = command.ExecuteReader())
@@ -35,9 +40,13 @@ namespace Bill.Management.Implementations.Data.Users.Repositories
                         string text = reader.GetString(1);
                     }
                 }
-            }
-
+        }
             return ArraySegment<User>.Empty;
+             */
+
+
+
+            return (IReadOnlyList<User>) entities ?? ArraySegment<User>.Empty;
         }
 
         public void Create(User data)

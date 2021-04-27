@@ -171,15 +171,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ChildWindow.xaml.cs">
-      <DependentUpon>ChildWindow.xaml</DependentUpon>
+    <Compile Include="UserEditorViewWindow.xaml.cs">
+      <DependentUpon>UserEditorViewWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Factories\IDemoFactory.cs" />
-    <Compile Include="ViewModels\ChildViewModel.cs" />
+    <Compile Include="Factories\IUserViewModelFactory.cs" />
+    <Compile Include="ViewModels\UserEditorViewModel.cs" />
     <Compile Include="ViewModels\Data\IUserViewModel.cs" />
     <Compile Include="ViewModels\Data\UserViewModel.cs" />
     <Compile Include="ViewModels\PrimaryMainViewModel.cs" />
-    <Page Include="ChildWindow.xaml">
+    <Compile Include="Views\IEditorUserView.cs" />
+    <Page Include="UserEditorViewWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

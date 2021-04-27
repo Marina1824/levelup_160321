@@ -64,6 +64,20 @@ namespace Bill.Management.Implementations.Data.Users.Managers
             }
         }
 
+        public IOperationResult<User> UpdateUser(User user)
+        {
+            User oldUser = _userRepository.GetUserById(user.Id);
+
+            oldUser.FirstName = user.FirstName;
+            oldUser.LastName = user.LastName;
+            oldUser.MiddleName = user.MiddleName;
+            oldUser.Text = user.Text;
+
+            _userRepository.Commit();
+
+            return new OperationResult<User>(oldUser);
+        }
+
         public IOperationResult<User> UpdateUserText(int id, string text)
         {
             User user = _userRepository.GetUserById(id);

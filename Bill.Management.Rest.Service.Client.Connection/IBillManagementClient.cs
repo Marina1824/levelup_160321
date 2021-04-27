@@ -10,5 +10,9 @@ namespace Bill.Management.Rest.Service.Client.Connection
     {
         [Get("/v1/users/")]
         Task<OperationResult<IReadOnlyList<User>>> GetClients();
+        [Put("/v1/users/")]
+        Task<OperationResult<User>> CreateUser(User user);
+        [Post("/v1/users/")]
+        Task<OperationResult<User>> UpdateUser(User user);
     }
 }
