@@ -21,7 +21,6 @@
     <Folder Include="Commands\Users\" />
     <Folder Include="Data\Users\Managers\" />
     <Folder Include="Data\Users\Repositories\Contexts\" />
-    <Folder Include="Data\Users\Validators\" />
   </ItemGroup>
 
   <ItemGroup>

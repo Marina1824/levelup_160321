@@ -18,7 +18,7 @@ namespace Bill.Management
 
             IBillManagementClient client = ClientFactory.Create("http://localhost:58755");
 
-            IOperationResult<IReadOnlyList<User>> usersList = await client.GetClients();
+            IOperationResult<IReadOnlyList<Invoice>> invoicesList = await client.GetInvoices();
 
             Console.ReadLine();
         }

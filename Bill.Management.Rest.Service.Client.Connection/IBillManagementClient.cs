@@ -14,5 +14,14 @@ namespace Bill.Management.Rest.Service.Client.Connection
         Task<OperationResult<User>> CreateUser(User user);
         [Post("/v1/users/")]
         Task<OperationResult<User>> UpdateUser(User user);
+
+        [Get("/v1/bills/")]
+        Task<IOperationResult<IReadOnlyList<Invoice>>> GetInvoices();
+        [Put("/v1/bills/")]
+        Task<IOperationResult<Invoice>> CreateInvoice(Invoice invoice);
+        [Post("/v1/bills/")]
+        Task<IOperationResult<Invoice>> UpdateInvoiceById(Invoice invoice);
+        [Post("/v1/bills/")]
+        Task<IOperationResult<Invoice>> DeleteInvoiceById(int id);
     }
 }

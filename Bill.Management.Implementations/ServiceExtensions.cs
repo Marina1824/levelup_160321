@@ -1,4 +1,5 @@
 ﻿using Bill.Management.Abstractions;
+using Bill.Management.Abstractions.Data.Invoices;
 using Bill.Management.Abstractions.Data.Users;
 using Bill.Management.Core.Abstractions;
 using Bill.Management.Core.Abstractions.Container;
@@ -21,6 +22,8 @@ namespace Bill.Management.Implementations
             /* Используем EF Core репозиторий */
             container.AddSingleton<IUserRepository, UseEfRepository>();
 
+            container.AddSingleton<IInvoiceRepository, InvoiceEfRepository>();
+
             return container;
         }
 
@@ -32,6 +35,7 @@ namespace Bill.Management.Implementations
         public static IServiceCollection AddEntitiesValidation(this IServiceCollection container)
         {
             container.AddValidator<User, UserValidationService>();
+            container.AddValidator<Invoice, InvoiceValidationService>();
 
             return container;
         }
@@ -39,6 +43,7 @@ namespace Bill.Management.Implementations
         public static IServiceCollection AddCollectionManagers(this IServiceCollection container)
         {
             container.AddSingleton<IUsersCollectionManager, UsersCollectionManager>();
+            container.AddSingleton<IInvoiceCollectionManager, InvoiceCollectionManager>();
 
             return container;
         }

@@ -7,6 +7,7 @@ namespace Bill.Management.Implementations.Data.Users.Repositories.Contexts
     internal sealed class BillDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -18,6 +19,8 @@ namespace Bill.Management.Implementations.Data.Users.Repositories.Contexts
         {
             modelBuilder
                 .Entity<User>();
+            modelBuilder
+                .Entity<Invoice>();
         }
     }
 }

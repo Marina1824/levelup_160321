@@ -28,7 +28,15 @@ namespace Bill.Managemen.Rest.Service.Controllers
             _collectionManager = collectionManager;
             _mapService = mapService;
         }
-        
+
+        [HttpGet]
+        public async Task<IOperationResult<IReadOnlyList<Invoice>>> GetAll()
+        {
+            IOperationResult<IReadOnlyList<Invoice>> result = _collectionManager.GetAllInvoices();
+
+            return await Task.FromResult(result);
+        }
+
         [HttpPut]
         public IOperationResult<Invoice> CreateInvoice([FromBody] Invoice invoice)
         {
@@ -39,18 +47,6 @@ namespace Bill.Managemen.Rest.Service.Controllers
         public IOperationResult<Invoice> UpdateInvoiceById([FromBody] Invoice invoice)
         {
             return _collectionManager.UpdateInvoiceById(invoice);
-        }
-
-        [HttpGet]
-        public IOperationResult<Invoice> GetInvoiceById([FromBody] int id)
-        {
-            return _collectionManager.GetInvoiceById(id);
-        }
-
-        [HttpPost]
-        public IOperationResult<Invoice> DeleteInvoiceById([FromBody] int id)
-        {
-            return _collectionManager.DeleteInvoiceById(id);
         }
     }
 }

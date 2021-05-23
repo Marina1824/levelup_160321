@@ -61,10 +61,26 @@ namespace Bill.Management.Implementations.Data.Users.Managers
             return new OperationResult<Invoice>(oldInvoice);
         }
 
+        public IOperationResult<IReadOnlyList<Invoice>> GetAllInvoices()
+        {
+            Logger.Information("Calling for invoices...");
+
+            try
+            {
+                IReadOnlyList<Invoice> invoices = Repository.Read();
+
+                return new OperationResult<IReadOnlyList<Invoice>>(invoices);
+            }
+            catch (Exception exception)
+            {
+                return OperationResult<IReadOnlyList<Invoice>>.FromException(exception);
+            }
+        }
+
         public IOperationResult<Invoice> GetInvoiceById(int id)
         {
             Invoice invoice = _invoiceRepository.GetInvoiceById(id);
-            
+
             return new OperationResult<Invoice>(invoice);
         }
 
