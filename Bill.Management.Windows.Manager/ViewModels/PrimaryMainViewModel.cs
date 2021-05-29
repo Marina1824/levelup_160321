@@ -17,26 +17,35 @@ namespace Bill.Management.Windows.Manager.ViewModels
 {
     public sealed class PrimaryMainViewModel : MainViewModel
     {
-        private IBillManagementClient _client = ClientFactory.Create("http://localhost:58755");
+        private IBillManagementClient _client = ClientFactory.Create("http://localhost:5000");
         private readonly IDialogService _dialogService;
         private readonly ICustomDynamicFactory<BaseViewModel> _viewModeFactory;
         private readonly IUserViewModelFactory _userViewModelFactory;
+        private readonly IInvoiceViewModelFactory _invoiceViewModelFactory;
         private readonly ObservableCollection<IUserViewModel> _users = new ObservableCollection<IUserViewModel>();
+        private readonly ObservableCollection<IInvoiceViewModel> _invoices = new ObservableCollection<IInvoiceViewModel>();
         private IUserViewModel _currentUser;
+        private IInvoiceViewModel _currentInvoice;
 
         public PrimaryMainViewModel(
             ICommandFactory commandFactory,
             IDialogService dialogService, 
             ICustomDynamicFactory<BaseViewModel> viewModeFactory,
-            IUserViewModelFactory userViewModelFactory)
+            IUserViewModelFactory userViewModelFactory,
+            IInvoiceViewModelFactory invoiceViewModelFactory)
         {
             _dialogService = dialogService;
             _viewModeFactory = viewModeFactory;
             _userViewModelFactory = userViewModelFactory;
+            _invoiceViewModelFactory = invoiceViewModelFactory;
 
             RefreshCommand = commandFactory.Create("Refresh_command", x => Refresh());
             CreateNewUserCommand = commandFactory.Create("Create_User_command", x => CreateNewUser());
             EditCurrentUserCommand = commandFactory.Create("Edit_Current_User_command", x => EditCurrentUser());
+
+            RefreshInvoiceCommand = commandFactory.Create("Refresh_Invoice_command", x => RefreshInvoice());
+            CreateNewInvoiceCommand = commandFactory.Create("Create_Invoice_command", x => CreateNewInvoice());
+            EditCurrentInvoiceCommand = commandFactory.Create("Edit_Current_Invoice_command", x => EditCurrentInvoice());
         }
 
         public ICommand RefreshCommand
@@ -54,9 +63,29 @@ namespace Bill.Management.Windows.Manager.ViewModels
             get;
         }
 
+        public ICommand RefreshInvoiceCommand
+        {
+            get;
+        }
+
+        public ICommand CreateNewInvoiceCommand
+        {
+            get;
+        }
+
+        public ICommand EditCurrentInvoiceCommand
+        {
+            get;
+        }
+
         public ObservableCollection<IUserViewModel> Users
         {
             get => _users;
+        }
+
+        public ObservableCollection<IInvoiceViewModel> Invoices
+        {
+            get => _invoices;
         }
 
         public IUserViewModel CurrentUser
@@ -65,6 +94,17 @@ namespace Bill.Management.Windows.Manager.ViewModels
             set
             {
                 _currentUser = value;
+
+                OnPropertyChanged();
+            }
+        }
+
+        public IInvoiceViewModel CurrentInvoice
+        {
+            get => _currentInvoice;
+            set
+            {
+                _currentInvoice = value;
 
                 OnPropertyChanged();
             }
@@ -134,6 +174,76 @@ namespace Bill.Management.Windows.Manager.ViewModels
                 user.LastName = editorViewModel.LastName;
                 user.MiddleName = editorViewModel.MiddleName;
                 user.Text = editorViewModel.Comment;
+
+                return true;
+            }
+
+            return false;
+        }
+        
+        private void RefreshInvoice()
+        {
+            IOperationResult<IReadOnlyList<Invoice>> result = _client.GetInvoices().WaitAndUnwrapException();
+
+            if (result.Succeed)
+            {
+                _invoices.Clear();
+
+                foreach (Invoice invoice in result.Result)
+                {
+                    IInvoiceViewModel viewModel = _invoiceViewModelFactory.Create(invoice);
+
+                    _invoices.Add(viewModel);
+                }
+
+            }
+        }
+
+        private void CreateNewInvoice()
+        {
+            Invoice invoice = new Invoice();
+            invoice.Id = new Random().Next(10, 120);
+            invoice.IsDeleted = false;
+
+            if (RunEditInvoice(invoice))
+            {
+                _client.CreateInvoice(invoice).WaitAndUnwrapException();
+            }
+        }
+
+        private void EditCurrentInvoice()
+        {
+            if (CurrentInvoice is null || CurrentInvoice.Model is null)
+            {
+                return;
+            }
+
+            if (RunEditInvoice(CurrentInvoice.Model))
+            {
+                _client.UpdateInvoiceById(CurrentInvoice.Model).WaitAndUnwrapException();
+            }
+        }
+
+
+        private bool RunEditInvoice(Invoice invoice)
+        {
+            if (invoice is null)
+            {
+
+                return false;
+            }
+
+            InvoiceEditorViewModel editorViewModel = _viewModeFactory.Create<InvoiceEditorViewModel>();
+
+            editorViewModel.Invoice = invoice;
+
+            bool? result = _dialogService.ShowDialog<IEditorInvoiceView, InvoiceEditorViewModel>(editorViewModel);
+
+            if (result.HasValue && result.Value)
+            {
+                invoice.ShopName = editorViewModel.ShopName;
+                invoice.Sum = editorViewModel.Sum;
+                invoice.Comment = editorViewModel.Comment;
 
                 return true;
             }

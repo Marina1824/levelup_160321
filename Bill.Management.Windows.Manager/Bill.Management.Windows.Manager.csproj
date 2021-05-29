@@ -171,15 +171,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Factories\IInvoiceViewModelFactory.cs" />
+    <Compile Include="InvoiceEditorViewWindow.xaml.cs">
+      <DependentUpon>InvoiceEditorViewWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserEditorViewWindow.xaml.cs">
       <DependentUpon>UserEditorViewWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Factories\IUserViewModelFactory.cs" />
+    <Compile Include="ViewModels\Data\IInvoiceViewModel.cs" />
+    <Compile Include="ViewModels\Data\InvoiceViewModel.cs" />
+    <Compile Include="ViewModels\InvoiceEditorViewModel.cs" />
     <Compile Include="ViewModels\UserEditorViewModel.cs" />
     <Compile Include="ViewModels\Data\IUserViewModel.cs" />
     <Compile Include="ViewModels\Data\UserViewModel.cs" />
     <Compile Include="ViewModels\PrimaryMainViewModel.cs" />
+    <Compile Include="Views\IEditorInvoiceView.cs" />
     <Compile Include="Views\IEditorUserView.cs" />
+    <Page Include="InvoiceEditorViewWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserEditorViewWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

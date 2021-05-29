@@ -13,7 +13,7 @@ namespace Bill.Management.Windows.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private string _title = "CHANGE CAPTION!!!";
+        private string _title = "Editor";
 
         public string Title
         {

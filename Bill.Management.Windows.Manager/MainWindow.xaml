@@ -14,24 +14,43 @@
         WindowStartupLocation="CenterScreen" 
         d:DataContext="{d:DesignInstance viewModels1:PrimaryMainViewModel}">
 
-    <DockPanel LastChildFill="True">
-        <StackPanel DockPanel.Dock="Left" Width="180" MinWidth="170">
+    <TabControl>
+        <TabItem>
+            <TabItem.Header>
+                <TextBlock>Users</TextBlock>
+            </TabItem.Header>
+            <DockPanel LastChildFill="True">
+                <StackPanel DockPanel.Dock="Left" Width="180" MinWidth="170">
+                    <Button Command="{Binding RefreshCommand}" Height="20" Width="165">Refresh</Button>
+                    <Button Command="{Binding CreateNewUserCommand}" Height="20" Width="165">New</Button>
+                    <Button Command="{Binding EditCurrentUserCommand}" Height="20" Width="165">Edit</Button>
+                </StackPanel>
 
-            <Button Command="{Binding RefreshCommand}" Height="20" Width="165">Refresh</Button>
+                <DataGrid 
+                    AutoGenerateColumns="True" 
+                    SelectedItem="{Binding CurrentUser, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    ItemsSource="{Binding Path=Users, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+                </DataGrid>
+            </DockPanel>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <TextBlock>Invoices</TextBlock>
+            </TabItem.Header>
+            <DockPanel LastChildFill="True">
+                <StackPanel DockPanel.Dock="Left" Width="180" MinWidth="170">
+                    <Button Command="{Binding RefreshInvoiceCommand}" Height="20" Width="165">Refresh</Button>
+                    <Button Command="{Binding CreateNewInvoiceCommand}" Height="20" Width="165">New</Button>
+                    <Button Command="{Binding EditCurrentInvoiceCommand}" Height="20" Width="165">Edit</Button>
+                </StackPanel>
 
-            <Button Command="{Binding CreateNewUserCommand}" Height="20" Width="165">New</Button>
-            <Button Command="{Binding EditCurrentUserCommand}" Height="20" Width="165">Edit</Button>
-
-        </StackPanel>
-
-        <DataGrid 
-            AutoGenerateColumns="True" 
-            SelectedItem="{Binding CurrentUser, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-            ItemsSource="{Binding Path=Users, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
-
-        </DataGrid>
-    </DockPanel>
-
-    
+                <DataGrid 
+                    AutoGenerateColumns="True" 
+                    SelectedItem="{Binding CurrentInvoice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    ItemsSource="{Binding Path=Invoices, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+                </DataGrid>
+            </DockPanel>
+        </TabItem>
+    </TabControl>
 
 </Window>

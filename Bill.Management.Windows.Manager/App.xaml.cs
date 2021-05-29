@@ -29,7 +29,9 @@ namespace Bill.Management.Windows.Manager
 
             kernel.Bind<IPrimaryWindowView>().To<MainWindow>().InSingletonScope();
             kernel.Bind<UserEditorViewModel>().To<UserEditorViewModel>().InSingletonScope();
+            kernel.Bind<InvoiceEditorViewModel>().To<InvoiceEditorViewModel>().InSingletonScope();
             kernel.Bind<IDialogView, IEditorUserView>().To<UserEditorViewWindow>().InTransientScope();
+            kernel.Bind<IDialogView, IEditorInvoiceView>().To<InvoiceEditorViewWindow>().InTransientScope();
             kernel.Bind<PrimaryMainViewModel>().ToSelf().InSingletonScope();
 
             kernel.AddCommandFactory();
@@ -37,6 +39,7 @@ namespace Bill.Management.Windows.Manager
             kernel.AddDialogService();
             kernel.AddViewModelsFactory();
             kernel.AddFactory<IUserViewModelFactory, UserViewModel, User>();
+            kernel.AddFactory<IInvoiceViewModelFactory, InvoiceViewModel, Invoice>();
 
             IPrimaryWindowView windowView = kernel.Get<IPrimaryWindowView>();
 

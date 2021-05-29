@@ -16,12 +16,12 @@ namespace Bill.Management.Rest.Service.Client.Connection
         Task<OperationResult<User>> UpdateUser(User user);
 
         [Get("/v1/bills/")]
-        Task<IOperationResult<IReadOnlyList<Invoice>>> GetInvoices();
+        Task<OperationResult<IReadOnlyList<Invoice>>> GetInvoices();
         [Put("/v1/bills/")]
-        Task<IOperationResult<Invoice>> CreateInvoice(Invoice invoice);
+        Task<OperationResult<Invoice>> CreateInvoice(Invoice invoice);
         [Post("/v1/bills/")]
-        Task<IOperationResult<Invoice>> UpdateInvoiceById(Invoice invoice);
+        Task<OperationResult<Invoice>> UpdateInvoiceById(Invoice invoice);
         [Post("/v1/bills/")]
-        Task<IOperationResult<Invoice>> DeleteInvoiceById(int id);
+        Task<OperationResult<Invoice>> DeleteInvoiceById(int id);
     }
 }

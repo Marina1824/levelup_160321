@@ -16,9 +16,11 @@ namespace Bill.Management
         {
             Console.WriteLine("Hello World!");
 
-            IBillManagementClient client = ClientFactory.Create("http://localhost:58755");
+            IBillManagementClient client = ClientFactory.Create("http://localhost:5000");
 
-            IOperationResult<IReadOnlyList<Invoice>> invoicesList = await client.GetInvoices();
+            var invoices = await client.GetInvoices();
+            var users = await client.GetClients();
+            //IOperationResult<IReadOnlyList<Invoice>> invoicesList = await client.GetInvoices();
 
             Console.ReadLine();
         }
